@@ -1,0 +1,106 @@
+<html>
+<head>
+<link href='http://allinworld99.blogspot.com/2014/09/css-calculator-design.html' rel='canonical'/>
+<script type="text/javascript">
+
+function showButtons(name){                           // Show imagemap buttons values for controlling robot
+    document.myform.stage.value = name;
+}
+</script>
+</head>
+<body>
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+      <div id="calculator">
+  <div class="top">
+    <br><br><br>
+    <form name="myform">
+    <div class="screen"><input name="stage" type="text"></div>
+    </form>
+  </div>
+  
+  <div class="keys">
+    <span 
+    onMouseOver="showButtons('7');"
+    onMouseOut="showButtons('');" 
+    ></span>
+    <span 
+    onMouseOver="showButtons('Up');"
+    onMouseOut="showButtons('');"
+    id="forward"
+    >^</span>
+    <span 
+    onMouseOver="showButtons('9');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span class="operation" 
+    onMouseOver="showButtons('Action 1');"
+    onMouseOut="showButtons('');" 
+    id = "Act1"
+    >A1</span>
+    <span 
+    onMouseOver="showButtons('Left');"
+    onMouseOut="showButtons('');"
+    id="left"
+    > < </span>
+    <span 
+    onMouseOver="showButtons('Stop');"
+    onMouseOut="showButtons('');"
+    id = "stop"
+    > S </span>
+    <span 
+    onMouseOver="showButtons('Right');"
+    onMouseOut="showButtons('');"
+    id="right"
+    > > </span>
+    <span class="operation" 
+    onMouseOver="showButtons('Action 2');"
+    onMouseOut="showButtons('');"
+    id = "Act2"
+    >A2</span>
+    <span 
+    onMouseOver="showButtons('1');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span 
+    onMouseOver="showButtons('Down');"
+    onMouseOut="showButtons('');"
+    id="reverse"
+    > v </span>
+    <span 
+    onMouseOver="showButtons('3');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span class="operation" 
+    onMouseOver="showButtons('Action 3');"
+    onMouseOut="showButtons('');"
+    id = "Act3"
+    >A3</span>
+    <span 
+    onMouseOver="showButtons('0');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span 
+    onMouseOver="showButtons('.');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span class="eval" 
+    onMouseOver="showButtons('=');"
+    onMouseOut="showButtons('');"
+    ></span>
+    <span class="operation" 
+    onMouseOver="showButtons('Action 4');"
+    onMouseOut="showButtons('');"
+    id = "Act4"
+    >A4</span>
+  </div>
+    </div>
+    </div>
+</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</html>
+
+ 
