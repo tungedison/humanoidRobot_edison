@@ -1,5 +1,5 @@
 {
-  "name": "LediMote",
+  "name": "humanoidrobot",
   "private": true,
   "scripts": {
     "start": "node server.js"
