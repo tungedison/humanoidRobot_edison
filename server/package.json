@@ -5,8 +5,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "4.13.0",
-    "morgan": "1.6.0",
-    "socket.io": "1.3.5"
+    "express": "latest",
+    "morgan": "latest",
+    "socket.io": "latest"
   }
 }
