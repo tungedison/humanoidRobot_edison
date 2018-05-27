@@ -1,16 +1,17 @@
 {
-  "name": "ble-light",
-  "description": "",
-  "version": "0.0.1",
-  "main": "app.js",
-  "engines": {
-    "node": ">=0.10.0"
+  "name": "humanoidrobot",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
   },
   "dependencies": {
-      "mraa": "latest",
-      "async": "latest",
-      "noble": "latest",
-      "bleno": "latest",
-      "util": "latest"
+    "mraa": "latest",
+    "async": "latest",
+    "noble": "latest",
+    "bleno": "latest",
+    "util": "latest",
+	"express": "latest",
+	"morgan": "latest",
+	"socket.io": "latest"
   }
 }
