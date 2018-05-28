@@ -7,7 +7,7 @@ var express = require('express')
 var bleno = require('bleno');
 var BlenoPrimaryService = bleno.PrimaryService;
 
-var FirstCharacteristic = require('./socket.js');
+var FirstCharacteristic = require('../lib/config/socket');
 
 bleno.on('stateChange', function(state) {
   console.log('BLE State: ' + state);

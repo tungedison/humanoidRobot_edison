@@ -289,7 +289,7 @@ module.exports = function (socket) {
 
 var util = require('util');
 var bleno = require('bleno');
-var mraa = require('mraa');
+
 
 var BlenoCharacteristic = bleno.Characteristic;
 
