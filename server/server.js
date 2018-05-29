@@ -12,7 +12,7 @@ var FirstCharacteristic = require('../lib/config/socket');
 bleno.on('stateChange', function(state) {
   console.log('BLE State: ' + state);
   if (state === 'poweredOn') {
-    bleno.startAdvertising('BLE Light', ['fc00']);
+    bleno.startAdvertising('Humanoid Robot', ['fc00']);
   }
   else {
     if(state === 'unsupported'){
