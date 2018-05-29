@@ -40,7 +40,7 @@ io0.on('connection', require('./lib/routes/socket'));
 var bleno = require('bleno');
 var BlenoPrimaryService = bleno.PrimaryService;
 
-var FirstCharacteristic = require('../lib/config/socket');
+var FirstCharacteristic = require('./lib/routes/socket');
 
 bleno.on('stateChange', function(state) {
   console.log('BLE State: ' + state);
