@@ -1,6 +1,175 @@
+// Map GPIO block pins to MRAA pin numbers
+// Reference: https://learn.sparkfun.com/tutorials/installing-libmraa-on-ubilinux-for-edison
+
+"use strict";
+
+const mraa = require('mraa'); //require mraa
+console.log('MRAA Version: ' + mraa.getVersion());
+let uart = new mraa.Uart(0);
+
+console.log("Note: connect Rx and Tx of UART with a wire before use");
+
+function sleep(delay) {
+    delay += new Date().getTime();
+    while (new Date() < delay) {}
+}
+
+console.log("Set UART parameters");
+
+uart.setBaudRate(9600);
+uart.setMode(8, 0, 1);
+uart.setFlowcontrol(false, false);
+sleep(200);
+
+function up2Down(){
+    console.log("UP AND DOWN ACTION:");
+    console.log("First write-read circle:");
+    uart.writeStr("4GC1\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    /*
+    uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#26P1456#27P1210#28P1989#29P1430#30P1456#31P567#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Second write-read circle:");
+    uart.writeStr("#1P1740#2P1678#3P1520#4P1567#5P1210#6P2120#7P1100#8P1567#25P1389#26P1789#27P900#28P1989#29P1389#30P1456#31P1167#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Third write-read circle:");
+    uart.writeStr("#1P1740#2P1830#3P1520#4P1540#5P1078#6P2256#7P1078#8P1500#25P1389#26P1830#27P740#28P2140#29P1430#30P1456#31P1389#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Fourth write-read circle:");
+    uart.writeStr("#1P1740#2P1940#3P1520#4P1540#5P1078#6P2389#7P989#8P1500#25P1389#26P1940#27P589#28P2140#29P1430#30P1456#31P1540#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    */
+}
+
+function goForwad(){
+    console.log("GO FORWARD ACTION:");
+    console.log("First write-read circle:");
+    uart.writeStr("1GC1\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    /*
+    uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#26P1456#27P1210#28P1989#29P1430#30P1456#31P567#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Second write-read circle:");
+    uart.writeStr("#1P1740#2P1678#3P1520#4P1567#5P1210#6P2120#7P1100#8P1567#25P1389#26P1789#27P900#28P1989#29P1389#30P1456#31P1167#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Third write-read circle:");
+    uart.writeStr("#1P1740#2P1830#3P1520#4P1540#5P1078#6P2256#7P1078#8P1500#25P1389#26P1830#27P740#28P2140#29P1430#30P1456#31P1389#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Fourth write-read circle:");
+    uart.writeStr("#1P1740#2P1940#3P1520#4P1540#5P1078#6P2389#7P989#8P1500#25P1389#26P1940#27P589#28P2140#29P1430#30P1456#31P1540#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    */
+}
+
+function goToward(){
+    console.log("GO TOWARD ACTION:");
+    console.log("First write-read circle:");
+    uart.writeStr("4GC1\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    /*
+    uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#26P1456#27P1210#28P1989#29P1430#30P1456#31P567#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Second write-read circle:");
+    uart.writeStr("#1P1740#2P1678#3P1520#4P1567#5P1210#6P2120#7P1100#8P1567#25P1389#26P1789#27P900#28P1989#29P1389#30P1456#31P1167#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Third write-read circle:");
+    uart.writeStr("#1P1740#2P1830#3P1520#4P1540#5P1078#6P2256#7P1078#8P1500#25P1389#26P1830#27P740#28P2140#29P1430#30P1456#31P1389#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Fourth write-read circle:");
+    uart.writeStr("#1P1740#2P1940#3P1520#4P1540#5P1078#6P2389#7P989#8P1500#25P1389#26P1940#27P589#28P2140#29P1430#30P1456#31P1540#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    */
+}
+
+function turnLeft(){
+    console.log("TURN LEFT ACTION:");
+    console.log("First write-read circle:");
+    uart.writeStr("2GC1\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500); 
+   /*
+uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#26P1456#27P1210#28P1989#29P1430#30P1456#31P567#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Second write-read circle:");
+    uart.writeStr("#1P1740#2P1678#3P1520#4P1567#5P1210#6P2120#7P1100#8P1567#25P1389#26P1789#27P900#28P1989#29P1389#30P1456#31P1167#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Third write-read circle:");
+    uart.writeStr("#1P1740#2P1830#3P1520#4P1540#5P1078#6P2256#7P1078#8P1500#25P1389#26P1830#27P740#28P2140#29P1430#30P1456#31P1389#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Fourth write-read circle:");
+    uart.writeStr("#1P1740#2P1940#3P1520#4P1540#5P1078#6P2389#7P989#8P1500#25P1389#26P1940#27P589#28P2140#29P1430#30P1456#31P1540#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    */
+}
+
+function turnRight(){
+    console.log("TURN RIGHT ACTION:");
+    console.log("First write-read circle:");
+    uart.writeStr("3GC1\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+/*    
+uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#26P1456#27P1210#28P1989#29P1430#30P1456#31P567#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Second write-read circle:");
+    uart.writeStr("#1P1740#2P1678#3P1520#4P1567#5P1210#6P2120#7P1100#8P1567#25P1389#26P1789#27P900#28P1989#29P1389#30P1456#31P1167#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Third write-read circle:");
+    uart.writeStr("#1P1740#2P1830#3P1520#4P1540#5P1078#6P2256#7P1078#8P1500#25P1389#26P1830#27P740#28P2140#29P1430#30P1456#31P1389#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    sleep(500);
+    console.log("Fourth write-read circle:");
+    uart.writeStr("#1P1740#2P1940#3P1520#4P1540#5P1078#6P2389#7P989#8P1500#25P1389#26P1940#27P589#28P2140#29P1430#30P1456#31P1540#32P1230T1000\r\n");
+    sleep(1000);
+    console.log(uart.readStr(200));
+    */
+}
+
+
 var util = require('util');
 var bleno = require('bleno');
-var mraa = require('mraa');
+//var mraa = require('mraa');
 
 var BlenoCharacteristic = bleno.Characteristic;
 
@@ -13,9 +182,6 @@ var FirstCharacteristic = function() {
   });
   this._value = new Buffer("OFF", "utf-8");
   console.log("Characterisitic's value: "+this._value);
-  this._light = new mraa.Gpio(3);
-  this._light.dir(mraa.DIR_OUT);
-  this._light.write(0);
   this._updateValueCallback = null;
 };
 
@@ -31,11 +197,13 @@ FirstCharacteristic.prototype.onReadRequest = function(offset, callback) {
 // BLE write request
 FirstCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
   this._value = data;
-  if (data == "ON") {
-    this._light.write(1);
+  if (data == "left") {
+    console.log(data);
+	console.log('left');
+	turnLeft();
   }
   else {
-    this._light.write(0);
+    //this._light.write(0);
   }
   console.log('FirstCharacteristic - onWriteRequest: value = ' + this._value.toString("utf-8"));
 

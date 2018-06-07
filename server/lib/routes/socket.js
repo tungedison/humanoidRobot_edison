@@ -178,8 +178,8 @@ module.exports = function (socket) {
 
   socket.on('left', function(data) {
     console.log(data);
-  console.log('left');
-  turnLeft();
+	console.log('left');
+	turnLeft();
   });
 
   socket.on('right', function(data) {
@@ -286,7 +286,7 @@ module.exports = function (socket) {
 
 // BLE
 
-
+/* 
 var util = require('util');
 var bleno = require('bleno');
 
@@ -352,4 +352,4 @@ FirstCharacteristic.prototype.onUnsubscribe = function() {
   this._updateValueCallback = null;
 };
 
-module.exports = FirstCharacteristic;
+module.exports = FirstCharacteristic; */
