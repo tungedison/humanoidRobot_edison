@@ -169,7 +169,6 @@ uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#2
 
 var util = require('util');
 var bleno = require('bleno');
-//var mraa = require('mraa');
 
 var BlenoCharacteristic = bleno.Characteristic;
 

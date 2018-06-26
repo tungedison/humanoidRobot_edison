@@ -232,47 +232,54 @@ module.exports = function (socket) {
   });
   // App socket
   socket.on('command', function(data) {
+	var message = true;
     switch(data){
         case "turn left":
                 console.log(data);
                 console.log('left');
-		var message = true;
-		socket.emit('check_command',{noidung: message});
+				socket.emit('check_command',{noidung: message});
                 turnLeft();
             break;
         case "turn right":
                 console.log(data);
                 console.log('right');
+				socket.emit('check_command',{noidung: message});
                 turnRight();
             break;
         case "go forward":
                 console.log(data);
                 console.log('forward');
+				socket.emit('check_command',{noidung: message});
                 goForwad();
             break;
         case "go toward":
                 console.log(data);
                 console.log('toward');
+				socket.emit('check_command',{noidung: message});
                 goToward();
             break;
         case "action 1":
                 console.log(data);
                 console.log('action 1');
+				socket.emit('check_command',{noidung: message});
                 turnLeft();
             break;
         case "action 2":
                 console.log(data);
                 console.log('action 2');
+				socket.emit('check_command',{noidung: message});
                 turnRight();
             break;
         case "action 3":
                 console.log(data);
                 console.log('action 3');
+				socket.emit('check_command',{noidung: message});
                 goForwad();
             break;
         case "action 4":
                 console.log(data);
                 console.log('action 4');
+				socket.emit('check_command',{noidung: message});
                 goToward();
             break;
         default:
@@ -293,72 +300,4 @@ module.exports = function (socket) {
 
 
 
-// BLE
 
-/* 
-var util = require('util');
-var bleno = require('bleno');
-
-
-var BlenoCharacteristic = bleno.Characteristic;
-
-// Initialize BLE Characteristic
-var FirstCharacteristic = function() {
-  FirstCharacteristic.super_.call(this, {
-    uuid: 'fc0f',
-    properties: ['read', 'write', 'notify'],
-    value: null
-  });
-  this._value = new Buffer("OFF", "utf-8");
-  console.log("Characterisitic's value: "+this._value);
-  //this._light = new mraa.Gpio(3);
-  //this._light.dir(mraa.DIR_OUT);
-  //this._light.write(0);
-  this._updateValueCallback = null;
-};
-
-// Inherit the BlenoCharacteristic
-util.inherits(FirstCharacteristic, BlenoCharacteristic);
-
-// BLE Read request
-FirstCharacteristic.prototype.onReadRequest = function(offset, callback) {
-  console.log('FirstCharacteristic - onReadRequest: value = ' + this._value.toString("utf-8"), offset);
-  callback(this.RESULT_SUCCESS, this._value);
-};
-
-// BLE write request
-FirstCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
-  this._value = data;
-  if (data == "left") {
-
-  }
-  else if (data == "right") {
-
-  }
-  else if (data == "forward"){
-	  
-  }
-  console.log('FirstCharacteristic - onWriteRequest: value = ' + this._value.toString("utf-8"));
-
-  if (this._updateValueCallback) {
-    console.log('FirstCharacteristic - onWriteRequest: notifying');
-
-    this._updateValueCallback(this._value);
-  }
-
-  callback(this.RESULT_SUCCESS);
-};
-
-// BLE subscribe
-FirstCharacteristic.prototype.onSubscribe = function(maxValueSize, updateValueCallback) {
-  console.log('FirstCharacteristic - onSubscribe');
-  this._updateValueCallback = updateValueCallback;
-};
-
-// BLE unsubscribe
-FirstCharacteristic.prototype.onUnsubscribe = function() {
-  console.log('FirstCharacteristic - onUnsubscribe');
-  this._updateValueCallback = null;
-};
-
-module.exports = FirstCharacteristic; */
