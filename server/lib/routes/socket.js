@@ -21,10 +21,10 @@ uart.setMode(8, 0, 1);
 uart.setFlowcontrol(false, false);
 sleep(200);
 
-function up2Down(){
-    console.log("UP AND DOWN ACTION:");
+function kickAct(){
+    console.log("KICK ACTION:");
     console.log("First write-read circle:");
-    uart.writeStr("4GC1\r\n");
+    uart.writeStr("#4GC1\r\n");
     sleep(1000);
     console.log(uart.readStr(200));
     sleep(500);
@@ -53,7 +53,7 @@ function up2Down(){
 function goForwad(){
     console.log("GO FORWARD ACTION:");
     console.log("First write-read circle:");
-    uart.writeStr("1GC1\r\n");
+    uart.writeStr("#1GC1\r\n");
     sleep(1000);
     console.log(uart.readStr(200));
     sleep(500);
@@ -82,7 +82,7 @@ function goForwad(){
 function goToward(){
     console.log("GO TOWARD ACTION:");
     console.log("First write-read circle:");
-    uart.writeStr("4GC1\r\n");
+    uart.writeStr("#4GC1\r\n");
     sleep(1000);
     console.log(uart.readStr(200));
     sleep(500);
@@ -111,7 +111,7 @@ function goToward(){
 function turnLeft(){
     console.log("TURN LEFT ACTION:");
     console.log("First write-read circle:");
-    uart.writeStr("2GC1\r\n");
+    uart.writeStr("#2GC1\r\n");
     sleep(1000);
     console.log(uart.readStr(200));
     sleep(500); 
@@ -140,7 +140,7 @@ uart.writeStr("#1P1740#2P967#3P1520#4P1540#5P1210#6P1810#7P1456#8P1567#25P1389#2
 function turnRight(){
     console.log("TURN RIGHT ACTION:");
     console.log("First write-read circle:");
-    uart.writeStr("3GC1\r\n");
+    uart.writeStr("#3GC1\r\n");
     sleep(1000);
     console.log(uart.readStr(200));
     sleep(500);
@@ -210,7 +210,7 @@ module.exports = function (socket) {
   socket.on('Act1', function(data) {
     console.log(data);
     console.log('Action 1');
-    goForwad();
+    kickAct();
   });
 
   socket.on('Act2', function(data) {
